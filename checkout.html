@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleShop | Checkout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <script>
+    // Redirect to login if not logged in
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      alert('You must be logged in to access the checkout page.');
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <script>
+    // Redirect to login if not logged in
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      alert('You must be logged in to view the cart.');
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <header>
+    <div class="container">
+      <h1>SimpleShop</h1>
+      <nav>
+        <ul>
+          <li><a href="main_page.html">Home</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="login.html" id="auth-link">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Checkout</h2>
+
+    <form id="checkout-form">
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" required>
+
+      <label for="address">Shipping Address:</label>
+      <textarea id="address" required></textarea>
+
+      <label for="payment">Payment Method:</label>
+      <select id="payment" required>
+        <option value="">--Select--</option>
+        <option value="cod">Cash on Delivery</option>
+        <option value="gcash">GCash</option>
+        <option value="card">Credit/Debit Card</option>
+      </select>
+
+      <button type="submit">Place Order</button>
+    </form>
+
+    <p id="confirmation-message"></p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SimpleShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('checkout-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('fullname').value;
+      const address = document.getElementById('address').value;
+      const payment = document.getElementById('payment').value;
+
+      if (name && address && payment) {
+        localStorage.removeItem('cart');
+        document.getElementById('confirmation-message').textContent = `Thank you, ${name}! Your order will be shipped to ${address}. Payment method: ${payment}.`;
+        this.reset();
+      }
+    });
+
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    const loginLink = document.getElementById('auth-link');
+    if (isLoggedIn && loginLink) {
+      loginLink.textContent = 'Logout';
+      loginLink.href = '#';
+      loginLink.onclick = () => {
+        localStorage.setItem('loggedIn', 'false');
+        window.location.href = 'login.html';
+      };
+    }
+  </script>
+
+</body>
+</html>

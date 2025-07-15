@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RandomShop | Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>RandomShop</h1>
+      <nav>
+        <ul>
+          <li><a href="main_page.html">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="login.html" id="auth-link">Login</a></li>
+        </ul>
+      </nav>
+      <button id="darkToggle">Dark Mode</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Welcome to RandomShop</h2>
+      <p>Your one-stop shop for great products at great prices.</p>
+      <a href="#products" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="container">
+      <h2>Featured Products</h2>
+      <select id="categoryFilter">
+        <option value="all">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="accessories">Accessories</option>
+      </select>
+      <div class="product-grid">
+        <div class="product" data-category="electronics">
+          <img src="https://picsum.photos/200?random=1" alt="Product 1">
+          <h3>Product 1</h3>
+          <p>$10.00</p>
+          <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+        </div>
+        <div class="product" data-category="clothing">
+          <img src="https://picsum.photos/200?random=2" alt="Product 2">
+          <h3>Product 2</h3>
+          <p>$15.00</p>
+          <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+        </div>
+        <div class="product" data-category="accessories">
+          <img src="https://picsum.photos/200?random=3" alt="Product 3">
+          <h3>Product 3</h3>
+          <p>$20.00</p>
+          <button onclick="addToCart('Product 3', 20)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SimpleShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    const loginLink = document.getElementById('auth-link');
+    if (isLoggedIn && loginLink) {
+      loginLink.textContent = 'Logout';
+      loginLink.href = '#';
+      loginLink.onclick = () => {
+        localStorage.setItem('loggedIn', 'false');
+        window.location.href = 'login.html';
+      };
+    }
+  </script>
+</body>
+</html>

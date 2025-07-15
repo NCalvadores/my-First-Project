@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RandomShop | Cart</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>RandomShop</h1>
+      <nav>
+        <ul>
+          <li><a href="main_page.html">Home</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="login.html" id="auth-link">Login</a></li>
+        </ul>
+      </nav>
+      <button id="darkToggle">Dark Mode</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Your Shopping Cart</h2>
+    <div id="cart-container">
+      <ul id="cart-items"></ul>
+      <p><strong>Total:</strong> $<span id="total">0</span></p>
+      <button id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 RandomShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="cartscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RandomShop | Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <script>
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      alert('You must be logged in to access your profile.');
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <header>
+    <div class="container">
+      <h1>RandomShop</h1>
+      <nav>
+        <ul>
+          <li><a href="main_page.html">Home</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="login.html" id="auth-link">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Welcome to Your Profile</h2>
+    <p id="user-info">Loading user information...</p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SimpleShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simulated user info (future: replace with real database)
+    const user = {
+      name: 'Nathaniel Besere',
+      email: 'user@example.com',
+      memberSince: 'June 2025'
+    };
+
+    document.getElementById('user-info').innerHTML = `
+      <strong>Name:</strong> ${user.name}<br>
+      <strong>Email:</strong> ${user.email}<br>
+      <strong>Member Since:</strong> ${user.memberSince}
+    `;
+
+    // Auth toggle
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    const loginLink = document.getElementById('auth-link');
+    if (isLoggedIn && loginLink) {
+      loginLink.textContent = 'Logout';
+      loginLink.href = '#';
+      loginLink.onclick = () => {
+        localStorage.setItem('loggedIn', 'false');
+        window.location.href = 'login.html';
+      };
+    }
+  </script>
+
+</body>
+</html>
