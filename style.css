@@ -83,7 +83,7 @@ nav ul li a:hover {
 }
 
 .hero .btn:hover {
-  background: #f1f1f1;
+  background: #eeecec;
 }
 
 /* Product Section */
@@ -272,6 +272,10 @@ body.dark-mode .btn {
   background-color: #1f5c4d;
   color: #fff;
   border: 1px solid #666;
+}
+
+body.dark-mode .hero .btn:hover {
+  background: #03512c;
 }
 
 body.dark-mode input,
