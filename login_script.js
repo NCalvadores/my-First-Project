@@ -47,18 +47,14 @@ form.addEventListener('submit', function(event) {
 });
 
 
-// ===============================
 // Dark mode
-// ===============================
 const darkToggle = document.getElementById('darkToggle');
 const body = document.body;
 
-// Apply saved theme on load
 if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark');
 }
 
-// Toggle dark mode
 darkToggle.addEventListener('click', () => {
   body.classList.toggle('dark');
   const theme = body.classList.contains('dark') ? 'dark' : 'light';

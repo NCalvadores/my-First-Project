@@ -43,12 +43,10 @@ if (filter) {
   });
 }
 
-// Dark Mode Toggle
-// Dark Mode Toggle with LocalStorage
+// Dark Modes
 const darkToggle = document.getElementById('darkToggle');
 const body = document.body;
 
-// Load saved theme
 if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark-mode');
 }
